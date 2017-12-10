@@ -16,3 +16,9 @@ Things you may want to cover:
 * Start Service
 	rails s
 
+#TEAM
+
+* Abdelmoez Guetat Backend Development
+* Nael Fridhi Graphic Design
+* Saif Gasmi Front Development
+* Ghassen Brahim Front Development

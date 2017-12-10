@@ -2,6 +2,10 @@
 <% if message.object == "User" %>
 	Do you know the employee by the email <%= @users.find_by(id:message.id_object).email %>
 	<br/>
-	<%= link_to "Verify", "/verify/"+message.id.to_s ,:method => :delete  %>
+	<%= link_to "I know him", "/verify/"+message.id.to_s ,:method => :delete  %>
+<%elsif message.object == "Equipment" %>
+	Does this equipment exist on the hospital <%= @equipments.find_by(id:message.id_object).category %>
+	<br/>
+	<%= link_to "It exists", "/verify/"+message.id.to_s ,:method => :delete  %>
 <% end %>
 <% end %>

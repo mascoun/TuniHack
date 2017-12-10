@@ -166,7 +166,7 @@
        	<div class="container " style="padding-top:50px;min-height:500px;">
 	<h1 class="text-center" id="informations"> Informations </h1>
  	<div class="col-md-12">
-		<% @hospital.equipments.each do |equipment| %>
+		<% @hospital.equipments.where(approved: true).each do |equipment| %>
 		<div class="col-md-3">
 		<div class="panel panel-info wow fadeInUp" data-wow-duration=".3" data-wow-delay=".9s">
 		      <div class="panel-heading"><%= equipment.category %></div>
