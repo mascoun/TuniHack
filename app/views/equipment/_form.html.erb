@@ -1,0 +1,29 @@
+<%= form_for(@equipment, url: hospital_equipment_index_url(@hospital)) do |f| %>
+  <% if equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+      <ul>
+      <% equipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number %>
+    <%= f.number_field :number %>
+  </div>
+
+    <%= f.hidden_field :hospital_id, value: params[:hospital_id] %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

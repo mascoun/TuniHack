@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <!-- Begin Head -->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Hospital <%= @hospital.name %></title>
+        <meta name="keywords" content="HTML5 Theme" />
+        <meta name="description" content="Megakit - HTML5 Theme">
+        <meta name="author" content="keenthemes.com">
+
+        <!-- Web Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+ 	
+        <!-- Vendor Styles -->
+        <link href="/assets/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Theme Styles -->
+        <link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/global/global.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+	<%= csrf_meta_tags %>
+    </head>
+    <!-- End Head -->
+
+    <!-- Body -->
+    <body>
+
+        <!--========== HEADER V2 ==========-->
+        <header class="navbar-fixed-top s-header-v2 js__header-sticky s-header__shrink">
+            <!-- Navbar -->
+            <nav class="s-header-v2__navbar">
+                <div class="container g-display-table--lg">
+                    <!-- Navbar Row -->
+                    <div class="s-header-v2__navbar-row">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="s-header-v2__navbar-col">
+                            <button type="button" class="collapsed s-header-v2__toggle" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                                <span class="s-header-v2__toggle-icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
+                            <!-- Logo -->
+                            <div class="s-header-v2__logo">
+                                <a href="/" class="s-header-v2__logo-link">
+				<%= image_tag("logo.png",alt:"Dawini", class:"s-header-v2__logo-img s-header-v2__logo-img--default") %>
+				<%= image_tag("logo.png",alt:"Dawini", class:"s-header-v2__logo-img s-header-v2__logo-img--shrink") %>
+                                </a>
+                            </div>
+                            <!-- End Logo -->
+                        </div>
+                        
+                        <div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
+                                <ul class="s-header-v2__nav">
+                                    <li class="s-header-v2__nav-item"><a href="<%= hospital_path(@hospital) %>" class="s-header-v2__nav-link">Home</a></li>
+                                    <li class="s-header-v2__nav-item"><a href="<%= hospital_path(@hospital) %>#services" class="s-header-v2__nav-link">Services</a></li>
+                                    <li class="s-header-v2__nav-item"><a href="<%= hospital_path(@hospital) %>#informations" class="s-header-v2__nav-link">Informations</a></li>
+					<% if logged_in? %>
+<li class="s-header-v2__nav-item"><a href="<%= new_hospital_equipment_path(@hospital) %>" class="s-header-v2__nav-link">New Equipment</a></li>
+				<li class="s-header-v2__nav-item">		<%= link_to "Logout", logout_url,:method => :delete, class:"s-header-v2__nav-link"   %> </li>
+					<% else %>
+				<li class="s-header-v2__nav-item">		<%= link_to "Login", login_url,class:"s-header-v2__nav-link" %> </li>
+					<% end %>
+                                </ul>
+                            </div>
+                            <!-- End Nav Menu -->
+                        </div>
+                    </div>
+                    <!-- End Navbar Row -->
+                </div>
+            </nav>
+            <!-- End Navbar -->
+        </header>
+        <!--========== END HEADER V2 ==========-->
+
+        <!--========== PAGE CONTENT ==========-->
+ <!-- Services -->
+        <div class="container g-padding-y-80--xs g-padding-y-125--sm" id="services" style="margin-top:50px;">
+            <div class="row g-margin-b-10--xs">
+                <div class="col-md-6 g-margin-b-60--xs g-margin-b-0--lg">
+                    <!-- Masonry Grid -->
+                    <div class="row g-row-col--5 g-overflow--hidden js__masonry">
+                        <div class="col-xs-6 js__masonry-sizer"></div>
+                        <div class="col-xs-6 g-full-width--xs g-margin-b-10--xs g-margin-b-0--sm js__masonry-item">
+                            <div class="wow fadeInDown" data-wow-duration=".3" data-wow-delay=".1s">
+                                <img class="img-responsive" src="<%= image_path('aaa.jpg') %>" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 g-full-width--xs g-margin-b-10--xs js__masonry-item">
+                            <div class="wow fadeInRight" data-wow-duration=".3" data-wow-delay=".3s">
+                                <img class="img-responsive" src="<%= image_path('36dd215.png') %>" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 g-full-width--xs js__masonry-item">
+                            <div class="wow fadeInRight" data-wow-duration=".3" data-wow-delay=".5s">
+                                <img class="img-responsive" src="<%= image_path('bbb.jpg') %>" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Masonry Grid -->
+                </div>
+                <div class="col-md-5 g-margin-b-10--xs g-margin-b-0--lg g-margin-t-10--lg g-margin-l-20--lg">
+                    <div class="g-margin-b-30--xs">
+                        <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-15--xs">Equipments</p>
+                        <h2 class="g-font-size-32--xs g-font-size-36--sm">Add new equipment</h2>
+                       <div class="col-md-12">
+				<%= form_for(@equipment, url: hospital_equipment_index_path(@hospital)) do |f| %>
+				  <% if @equipment.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+				      <ul>
+				      <% equipment.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+
+				  <div class="form-group">
+				    <%= f.label :category %>
+				    <%= f.text_field :category, class: "form-control" %>
+				  </div>
+
+				  <div class="form-group">
+				    <%= f.label :number %>
+				    <%= f.number_field :number, class: "form-control" %>
+				  </div>
+
+				    <%= f.hidden_field :hospital_id, value: params[:hospital_id] %>
+
+				  <div class="form-group">
+				    <%= f.submit :class => "btn btn-info" %>
+				  </div>
+				<% end %>
+			</div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- End Services -->
+
+        <!--========== FOOTER ==========-->
+        <footer class="g-bg-color--dark">
+            <!-- Links -->
+            <!-- End Links -->
+
+            <!-- Copyright -->
+            <div class="container g-padding-y-50--xs">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light">
+
+Designed by 
+<a href="/">WKHAYENTeam</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--========== END FOOTER ==========-->
+
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+        <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+        <!-- Vendor -->
+        <script type="text/javascript" src="/assets/vendor/jquery.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/jquery.migrate.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/jquery.smooth-scroll.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/jquery.back-to-top.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/scrollbar/jquery.scrollbar.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/swiper/swiper.jquery.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/masonry/jquery.masonry.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/masonry/imagesloaded.pkgd.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/jquery.equal-height.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/jquery.parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/vendor/jquery.wow.min.js"></script>
+	<%= javascript_include_tag 'jq', 'data-turbolinks-track': 'reload' %>
+        <!-- General Components and Settings -->
+        <script type="text/javascript" src="/assets/global.min.js"></script>
+        <script type="text/javascript" src="/assets/components/scrollbar.min.js"></script>
+        <script type="text/javascript" src="/assets/components/swiper.min.js"></script>
+        <script type="text/javascript" src="/assets/components/masonry.min.js"></script>
+        <script type="text/javascript" src="/assets/components/equal-height.min.js"></script>
+        <script type="text/javascript" src="/assets/components/parallax.min.js"></script>
+        <script type="text/javascript" src="/assets/components/wow.min.js"></script>
+        <!--========== END JAVASCRIPTS ==========-->
+
+    </body>
+    <!-- End Body -->
+</html>

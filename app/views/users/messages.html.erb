@@ -1,0 +1,7 @@
+<% @messages.each do |message| %>
+<% if message.object == "User" %>
+	Do you know the employee by the email <%= @users.find_by(id:message.id_object).email %>
+	<br/>
+	<%= link_to "I know him", "/verify/"+message.id.to_s ,:method => :delete  %>
+<% end %>
+<% end %>

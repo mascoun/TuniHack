@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <!-- Begin Head -->
+    <head>
+        <!-- Basic -->
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Hospital <%= @hospital.name %></title>
+        <meta name="keywords" content="HTML5 Theme" />
+        <meta name="description" content="Megakit - HTML5 Theme">
+        <meta name="author" content="keenthemes.com">
+
+        <!-- Web Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
+ 	
+        <!-- Vendor Styles -->
+        <link href="/assets/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/animate.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/vendor/themify/themify.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Theme Styles -->
+        <link href="/assets/styles.css" rel="stylesheet" type="text/css"/>
+        <link href="/assets/global/global.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+	<%= csrf_meta_tags %>
+    </head>
+    <!-- End Head -->
+
+    <!-- Body -->
+    <body>
+
+        <!--========== HEADER V2 ==========-->
+        <header class="navbar-fixed-top s-header-v2 js__header-sticky">
+            <!-- Navbar -->
+            <nav class="s-header-v2__navbar">
+                <div class="container g-display-table--lg">
+                    <!-- Navbar Row -->
+                    <div class="s-header-v2__navbar-row">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="s-header-v2__navbar-col">
+                            <button type="button" class="collapsed s-header-v2__toggle" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
+                                <span class="s-header-v2__toggle-icon-bar"></span>
+                            </button>
+                        </div>
+
+                        <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
+                            <!-- Logo -->
+                            <div class="s-header-v2__logo">
+                                <a href="/" class="s-header-v2__logo-link">
+				<%= image_tag("logo.png",alt:"Dawini", class:"s-header-v2__logo-img s-header-v2__logo-img--default") %>
+				<%= image_tag("logo.png",alt:"Dawini", class:"s-header-v2__logo-img s-header-v2__logo-img--shrink") %>
+                                </a>
+                            </div>
+                            <!-- End Logo -->
+                        </div>
+                        
+                        <div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
+                                <ul class="s-header-v2__nav">
+                                    <li class="s-header-v2__nav-item"><a href="#" class="s-header-v2__nav-link">Home</a></li>
+                                    <li class="s-header-v2__nav-item"><a href="#services" class="s-header-v2__nav-link">Services</a></li>
+                                    <li class="s-header-v2__nav-item"><a href="#informations" class="s-header-v2__nav-link">Informations</a></li>
+					<% if logged_in? %>
+<li class="s-header-v2__nav-item"><a href="<%= new_hospital_equipment_path(@hospital) %>" class="s-header-v2__nav-link">New Equipment</a></li>
+				<li class="s-header-v2__nav-item">		<%= link_to "Logout", logout_url,:method => :delete, class:"s-header-v2__nav-link"   %> </li>
+					<% else %>
+				<li class="s-header-v2__nav-item">		<%= link_to "Login", login_url,class:"s-header-v2__nav-link" %> </li>
+					<% end %>
+                                </ul>
+                            </div>
+                            <!-- End Nav Menu -->
+                        </div>
+                    </div>
+                    <!-- End Navbar Row -->
+                </div>
+            </nav>
+            <!-- End Navbar -->
+        </header>
+        <!--========== END HEADER V2 ==========-->
+
+        <!--========== SWIPER SLIDER ==========-->
+        <div class="s-swiper js__swiper-slider">
+            <!-- Swiper Wrapper -->
+            <div class="swiper-wrapper">
+                <div class="s-promo-block-v4 g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('<%= image_url('14.jpg')%>');">
+                        <div class="row">
+                    <div class="container g-ver-center--xs">
+                            <div class="col-md-7">
+                                <div class="g-margin-b-50--xs">
+                                    <h1 class="g-font-size-32--xs g-font-size-45--sm g-font-size-60--md g-color--white"><%= @hospital.name %></h1>
+                                    <p class="g-font-size-18--xs g-font-size-22--sm g-color--white-opacity"><%= @hospital.description %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- End Swiper Wrapper -->
+        </div>
+	</div>
+        <!--========== END SWIPER SLIDER ==========-->
+
+        <!--========== PAGE CONTENT ==========-->
+ <!-- Services -->
+        <div class="container g-padding-y-80--xs g-padding-y-125--sm" id="services">
+            <div class="row g-margin-b-10--xs">
+                <div class="col-md-6 g-margin-b-60--xs g-margin-b-0--lg">
+                    <!-- Masonry Grid -->
+                    <div class="row g-row-col--5 g-overflow--hidden js__masonry">
+                        <div class="col-xs-6 js__masonry-sizer"></div>
+                        <div class="col-xs-6 g-full-width--xs g-margin-b-10--xs g-margin-b-0--sm js__masonry-item">
+                            <div class="wow fadeInDown" data-wow-duration=".3" data-wow-delay=".1s">
+                                <img class="img-responsive" src="<%= image_path('/assets/img/400x550/03.jpg') %>" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 g-full-width--xs g-margin-b-10--xs js__masonry-item">
+                            <div class="wow fadeInRight" data-wow-duration=".3" data-wow-delay=".3s">
+                                <img class="img-responsive" src="<%= image_path('/assets/img/970x647/10.jpg') %>" alt="Image">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 g-full-width--xs js__masonry-item">
+                            <div class="wow fadeInRight" data-wow-duration=".3" data-wow-delay=".5s">
+                                <img class="img-responsive" src="<%= image_path('/assets/img/970x647/11.jpg') %>" alt="Image">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Masonry Grid -->
+                </div>
+                <div class="col-md-5 g-margin-b-10--xs g-margin-b-0--lg g-margin-t-10--lg g-margin-l-20--lg">
+                    <div class="g-margin-b-30--xs">
+                        <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2 g-margin-b-15--xs">Services</p>
+                        <h2 class="g-font-size-32--xs g-font-size-36--sm">We Specialize In</h2>
+                        <p>With more than 40 years of experience in healthcare consulting, we deliver results to help grow your practice. Our comprehensive medical billing services allow you to do what you do best—run your practice.</p>
+                    </div>
+                    <div class="row">
+                        <ul class="list-unstyled col-xs-4 g-full-width--xs g-ul-li-tb-5--xs g-margin-b-20--xs g-margin-b-0--sm">
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Surgery</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Cardiology</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Ophthalmology</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Gynaecological</li>
+                        </ul>
+                        <ul class="list-unstyled col-xs-4 g-full-width--xs g-ul-li-tb-5--xs g-margin-b-20--xs g-margin-b-0--sm">
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Outpatient</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Rehabilitation</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Laryngological</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Pediatric</li>
+                        </ul>
+                        <ul class="list-unstyled col-xs-4 g-full-width--xs g-ul-li-tb-5--xs">
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Pediatric</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Rehabilitation</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Surgery</li>
+                            <li><i class="g-font-size-12--xs g-color--primary g-margin-r-10--xs ti-check"></i>Ophthalmology</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Services -->
+        <!-- Features -->
+       	<div class="container " style="padding-top:50px;min-height:500px;">
+	<h1 class="text-center" id="informations"> Informations </h1>
+ 	<div class="col-md-12">
+		<% @hospital.equipments.each do |equipment| %>
+		<div class="col-md-3">
+		<div class="panel panel-info wow fadeInUp" data-wow-duration=".3" data-wow-delay=".9s">
+		      <div class="panel-heading"><%= equipment.category %></div>
+		      <div class="panel-body">
+				<ul>
+					<li><label>Number</label><span style="margin-left:25px;"><%= equipment.number %><span> </li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<% end %>
+	</div>
+	</div>
+        <!-- End Features -->
+        <!--========== END PAGE CONTENT ==========-->
+
+        <!--========== FOOTER ==========-->
+        <footer class="g-bg-color--dark">
+            <!-- Links -->
+            <!-- End Links -->
+
+            <!-- Copyright -->
+            <div class="container g-padding-y-50--xs">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light">
+
+Designed by 
+<a href="/">WKHAYENTeam</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--========== END FOOTER ==========-->
+
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+        <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
+	<%= javascript_include_tag 'jq', 'data-turbolinks-track': 'reload' %>
+ 
+
+    </body>
+    <!-- End Body -->
+</html>
